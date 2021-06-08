@@ -1,0 +1,136 @@
+body {
+  font-family: 'Odibee Sans', cursive !important;
+
+}
+
+ul {
+  height: 440px !important;
+}
+
+p {
+  font-size: 30px;
+}
+
+h1 {
+  font-size: 80px !important;
+  margin-top: 15px !important; 
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+h2 {
+  /* font-size: 40px !important; */
+  text-align: center;
+}
+
+h3 {
+  font-size: 50px !important;
+}
+
+ul {
+  margin: 0 !important;
+  max-width: 442px !important;
+  height: 40px;
+}
+
+li {
+  padding: 5px 0px !important;
+  width: 40px;
+  font-size: 22px;
+  font-weight: 500;
+  height: 40px;
+  margin: 0;  
+  display: inline-block;
+  background-color: rgb(204, 220, 255);
+  border: 1px solid black;
+}
+
+header {
+  background-color:rgb(73, 76, 248);
+  color: white;
+  text-shadow: 2.5px 2.5px 2.5px black;
+}
+
+.container {
+  max-width: 100% !important;
+}
+
+.topGrid {
+  background-color: rgb(162, 176, 255);
+}
+
+.selectable {
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.selectable:hover {
+    background-color: purple;
+}
+
+.selectable2 {
+    transition: all 0.1s ease-in-out;
+}
+
+.battleship {
+  background-color: red;
+}
+
+.destroyer {
+  background-color: crimson;
+}
+
+.hit {
+  background-color: cyan !important;
+}
+
+.log {
+  width: 450px;
+  border-radius: 12px;
+  box-shadow: 0 0px 8px #8d8d8d;
+}
+
+.log p{
+  margin-bottom: 5px;
+  font-size: 25px;
+}
+
+.miss {
+  background-color: chartreuse !important;
+}
+
+.gameOver p {
+  font-size: 40px !important;
+}
+
+.stats p {
+    padding-bottom: 10px;
+}
+
+.stats p span {
+  padding: 5px 16px;
+  border: 2px solid black;
+}
+
+button {
+  width: 230px;
+  height: 60px;
+  font-size: 25px !important;
+  border: none;
+  background-color:  #1ca13d;
+  color: white;
+  border-radius: 10px !important;
+  text-transform: uppercase;
+  padding: 13px 10px !important;
+  transition: all 0.2s !important;
+  margin: 10px !important;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #11bb66;
+}
+
+button:focus {
+  outline: none !important;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Battleships</title>
+
+  <!-- My CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap4 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- VueJS -->
+  <script src="https://unpkg.com/vue@next" defer></script>
+
+  <!-- My JS -->
+  <script src="app/app.js" defer></script>
+
+</head>
+
+<body>
+
+  <div class="container p-0" id="game">
+
+    <section class="row m-0 p-0 mb-4">
+      <header class="col-12 p-0 text-center">
+        <h1>Battleships</h1>
+      </header>
+    </section>
+
+    <section class="row mx-auto justify-content-center m-0 p-0" style="max-width: 1233px;">
+
+      <div v-if="gameStarted" class="col-12 col-xl-5">
+        <h2 class="mx-auto display-3">Enemy Board</h2>
+        <ul class="p-0 m-0 mx-auto">
+          <li v-for="(item, i) in 11" class="topGrid text-center"> {{ gridTop[i] }}</li>
+          <li v-for="(item, i) in 110" @click="playerFire(i)" class="text-center selectable"
+            :class="{topGrid: ifSideGridCheck(i), hit: isHit(i), miss: isPlayerMiss(i)}">
+            {{ ifSideGridEnemy (i) }}</li>
+        </ul>
+      </div>
+
+      <div class="col-12 col-xl-5">
+        <h2 class="mx-auto display-3">Your Board</h2>
+        <ul class="p-0 m-0 mx-auto">
+          <li v-for="(item, i) in 11" class="topGrid text-center"> {{ gridTop[i] }}</li>
+          <li v-for="(item, i) in 110" class="text-center selectable2"
+            :class="{topGrid: ifSideGridCheck(i), battleship: isPlayerBattleship(i), destroyer: isPlayerDestroyer(i), hit: isPlayerHit(i), miss: isComputerMiss(i)}">
+            {{ ifSideGridPlayer(i) }}</li>
+        </ul>
+      </div>
+
+
+
+
+    </section>
+
+    <section class="controls mt-4 text-center">
+      <button v-if="!gameStarted" @click="fillPlayerBoard">Start Game</button>
+    </section>
+
+    <section v-if="gameIsOver" class="log gameOver mt-4 mx-auto text-center">
+      <h3>Game Over!</h3>
+      <p v-if="winner == 'player'">You won!</p>
+      <p v-if="winner == 'computer'">You lost!</p>
+      <p v-if="winner == 'draw'">It's draw!</p>
+      <button @click="fillPlayerBoard">New Game</button>
+    </section>
+
+    <section v-if="gameStarted" class="log stats mt-4 mx-auto text-center">
+      <h3>Stats & Legend</h3>
+      <p><span style="background-color: cyan;">&nbsp;</span> - Hit</p>
+      <p><span style="background-color: chartreuse;">&nbsp;</span> - Miss</p>
+      <p><span style="background-color: crimson;">&nbsp;</span> - Battleship</p>
+      <p><span style="background-color: red;">&nbsp;</span> - Destroyer</p>
+      <p>Shots fired - {{ playerHits.length + playerMisses.length }}</p>
+      <p>Your hits - {{ playerHits.length }}</p>
+      <p>Computer hits - {{ computerHits.length }}</p>
+    </section>
+
+    <section v-if="gameStarted" class="log mt-4 mx-auto text-center">
+      <h3>Action log</h3>
+      <p v-for="message in logMessages">{{ message }}</p>
+    </section>
+  </div>
+
+
+
+
+  <!-- Bootstrap + JQuery + Popper -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -23,7 +23,7 @@ On game start you and the computer get 3 randomly placed ships on the grid:
 * **Battleship** x 1 - *5* tiles
 * **Destroyer** x 2 - *4* tiles
 
-![Started game](https://raw.githubusercontent.com/customrevolution/battleships-game/main/docs/images/game-start.png)
+![Started game](https://raw.githubusercontent.com/customrevolution/battleships-game/main/docs/images/game-start2.png)
 
 You and the computer fire until someone sinks all of the enemy's ships.
 You sink a ship by firing on all of it's tiles.
